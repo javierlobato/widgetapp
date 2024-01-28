@@ -15,7 +15,7 @@ class AppTheme {
   final int selectedColor;
 
   AppTheme({
-    this.selectedColor = 0
+    required this.selectedColor 
   
   }): assert( selectedColor >= 0, 'Selected color must be greater then 0'),
       assert( selectedColor < colorList.length, 'Selected color must be less or equal than ${colorList.length - 1}');
@@ -23,7 +23,7 @@ class AppTheme {
 
   ThemeData getTheme() => ThemeData(
     useMaterial3: true,
-    colorSchemeSeed: colorList[0]
-  );
+    colorSchemeSeed: colorList[selectedColor] 
+    );
 
 }

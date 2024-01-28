@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:widgetapp/config/menu/menu_items.dart';
 
@@ -22,21 +20,36 @@ class _HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-        
     return ListView.builder(
-      itemCount: appMenuItems.length,
-      itemBuilder: (context, index) {
-        final menuItem = appMenuItems[index];
+        itemCount: appMenuItems.length,
+        itemBuilder: (context, index) {
+          final menuItem = appMenuItems[index];
 
-        return ListTile(
-          title: Text(menuItem.title),
-          subtitle: Text(menuItem.subTitle),          
-          leading: Icon(menuItem.icon),
-          
-          
-        );
-      }
-    );  
+          return _CustomListTile(menuItem: menuItem);
+        });
+  }
+}
+
+class _CustomListTile extends StatelessWidget {
+  const _CustomListTile({    
+    required this.menuItem,
+  });
+
+  final MenuItems menuItem;
+
+  @override
+  Widget build(BuildContext context) {
+
+    final colors = Theme.of(context).colorScheme;
+
+    return ListTile(
+      title: Text(menuItem.title),
+      trailing:  const Icon(Icons.arrow_forward_ios_rounded),
+      subtitle: Text(menuItem.subTitle),
+      leading: Icon(menuItem.icon, color: colors.primary),
+      onTap: () {
+        //todo: navegara a ootraa pantalla.
+      },
+    );
   }
 }
