@@ -1,5 +1,8 @@
 import 'package:go_router/go_router.dart';
-import 'package:widgetapp/presentations/screens/screens.dart';
+import 'package:widgetapp/presentation/screens/buttons/buttons_screen.dart';
+import 'package:widgetapp/presentation/screens/cards/cards_screen.dart';
+import 'package:widgetapp/presentation/screens/home/home_screen.dart';
+
 
 
 //Go_Router Configuration
@@ -9,20 +12,20 @@ final appRouter = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      name: HomeScreens.name,
-      builder: (context, state) => const HomeScreens()
+      name: HomeScreen.name,
+      builder: (context, state) => const HomeScreen()
     ),
 
     GoRoute(
       path: '/buttons',
-      name: ButtonsScreens.name,
-      builder: (context, state) => const ButtonsScreens()
+      name: ButtonsScreen.name,
+      builder: (context, state) => const ButtonsScreen()
     ),
 
     GoRoute(
       path: '/cards',
-      name: CardsScreens.name,
-      builder: (context, state) => const CardsScreens()
+      name: CardsScreen.name,
+      builder: (context, state) => const CardsScreen()
     )
   ]
 
