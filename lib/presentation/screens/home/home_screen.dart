@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:widgets_app/config/menu/menu_items.dart';
-// import 'package:widgets_app/presentation/screens/cards/cards_screen.dart';
+import 'package:widgetapp/config/menu/menu_items.dart';
+
+
 
 
 
@@ -45,7 +46,7 @@ class _CustomListTile extends StatelessWidget {
     required this.menuItem,
   });
 
-  final MenuItem menuItem;
+  final MenuItems menuItem;
 
   @override
   Widget build(BuildContext context) {
