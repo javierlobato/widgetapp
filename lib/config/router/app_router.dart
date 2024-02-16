@@ -49,7 +49,13 @@ final appRouter = GoRouter(
       path: '/uicontrols',
       name: UiControlsScreen.name,
       builder: (context, state) => const UiControlsScreen()
-    ), 
+    ),
+
+    GoRoute(
+      path: '/tutorial',
+      name: AppTutorialScreen.name,
+      builder: (context, state) => const AppTutorialScreen()
+    ),  
   ]
 
 );
