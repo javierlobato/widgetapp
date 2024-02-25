@@ -6,6 +6,7 @@ import 'package:widgetapp/presentation/providers/theme_provider.dart';
 class ThemeChangerScreen extends ConsumerWidget {
 
   static const name = 'theme-changer';
+  
 
   const ThemeChangerScreen({super.key});
 
@@ -13,6 +14,7 @@ class ThemeChangerScreen extends ConsumerWidget {
   Widget build(BuildContext context, ref) {
 
     final darkMode = ref.watch( isDarkModeProvider );
+    
 
     return  Scaffold(
       appBar: AppBar(
@@ -22,7 +24,7 @@ class ThemeChangerScreen extends ConsumerWidget {
             icon: Icon( darkMode ? Icons.dark_mode_outlined : Icons.light_mode_outlined),
             onPressed: (){
               
-              
+              ref.read(isDarkModeProvider.notifier).update((state) => !state);
               },
             )
         ],        
@@ -39,6 +41,8 @@ class _ThemeChangerView extends ConsumerWidget {
   Widget build(BuildContext context, ref) {
 
     final List<Color> colors = ref.watch(colorListProvider);
+    final int selectedColorIndex = ref.watch(selectedColorProvider);
+    
 
     return ListView.builder(
       itemCount: colors.length,
@@ -49,9 +53,13 @@ class _ThemeChangerView extends ConsumerWidget {
           subtitle: Text('${color.value}'),
           activeColor: color,
           value: index, 
-          groupValue: 3, 
+          groupValue: selectedColorIndex, 
           onChanged: (value)=>{
            //: notificar el cambio
+           
+           ref.read(selectedColorProvider.notifier).state = index
+           
+           
           }
         );
       }
